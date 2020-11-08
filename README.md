@@ -1,1 +1,2 @@
-# learn-samurai
+# Learn, Samurai!
+
