@@ -15,12 +15,7 @@ class LessionListViewCell: UITableViewCell {
     @IBOutlet weak var skillLevelLabel: UILabel!
     
     @IBOutlet weak var practiceButton: UIButton!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+
     
     @IBAction func practicButtonPressed(_ sender: UIButton) {
         

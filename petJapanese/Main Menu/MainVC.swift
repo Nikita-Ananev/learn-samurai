@@ -30,10 +30,8 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(Realm.Configuration.defaultConfiguration.fileURL)
         
         if realm.objects(ProgressOnLession.self).isEmpty {
-            print("EMPTYYY")
             for lession in lessions {
                 let newProgress = ProgressOnLession()
                 newProgress.lessionID = lession.id
@@ -45,7 +43,7 @@ class MainVC: UIViewController {
                 }
             }
         } else {
-            let data = try! realm.objects(ProgressOnLession.self)
+            let data =  realm.objects(ProgressOnLession.self)
             user.access = Array(data)
             print(user.access)
         }
