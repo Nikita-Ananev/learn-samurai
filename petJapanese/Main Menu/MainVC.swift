@@ -6,9 +6,16 @@
 //
 
 import UIKit
-import SpriteKit
+import RealmSwift
+
+
 class MainVC: UIViewController {
+    
     var user = User.shared
+    let realm = try! Realm()
+    
+    
+    
     @IBOutlet weak var backViewForButton2: UIView!
     @IBOutlet weak var backViewForButton1: UIView!
 
@@ -22,6 +29,27 @@ class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        
+        if realm.objects(ProgressOnLession.self).isEmpty {
+            print("EMPTYYY")
+            for lession in lessions {
+                let newProgress = ProgressOnLession()
+                newProgress.lessionID = lession.id
+                newProgress.progress = 0.0
+                user.access.append(newProgress)
+                
+                try! realm.write {
+                    realm.add(newProgress)
+                }
+            }
+        } else {
+            let data = try! realm.objects(ProgressOnLession.self)
+            user.access = Array(data)
+            print(user.access)
+        }
+      
         
         trainButton.layer.cornerRadius = trainButton.frame.height / 2
         fightButton.layer.cornerRadius = fightButton.frame.height / 2
@@ -93,6 +121,7 @@ class MainVC: UIViewController {
                         }
                        })
     }
+
     
 }
 

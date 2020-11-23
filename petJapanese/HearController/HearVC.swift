@@ -6,15 +6,14 @@
 //
 
 import UIKit
-import AVFoundation
 
-class HearVC: UIViewController, LessionListTableVCDelegate {
-    var dataForHearVC: [Symbol]?
-    var delegateVC: LessionListTableVCDelegate?
+
+
+
+class HearVC: UIViewController {
     
-    
+    let user = User.shared
     var service = HearService(selectedSymbolIndex: 0)
-    var player: AVAudioPlayer!
     var groupForLearn: [Symbol]?
     var selectedSymbol: Symbol?
     var buttonIndex = Int()
@@ -22,7 +21,6 @@ class HearVC: UIViewController, LessionListTableVCDelegate {
     
     @IBOutlet weak var charInImage: UILabel!
     @IBOutlet weak var imageOfSymbol: UIImageView!
-    @IBOutlet weak var pageController: UIPageControl!
     @IBOutlet weak var listenButton: UIButton!
     @IBOutlet weak var transcriptLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
@@ -32,14 +30,14 @@ class HearVC: UIViewController, LessionListTableVCDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataForHearVC = delegateVC?.dataForHearVC
-        service.selectedGroup = delegateVC!.dataForHearVC
+        
+        service.selectedGroup = user.currentSymbolGroup
         service.selectedSymbol = service.selectedGroup![0]
         
         transcriptLabel.text = service.selectedSymbol?.charEng
         charInImage.text = service.selectedSymbol?.charJap
-        playSound(symbol: service.selectedSymbol!)
         
+        service.playSelectedSymbol()
         
         okButton.layer.cornerRadius = okButton.frame.height / 5
         
@@ -85,17 +83,8 @@ class HearVC: UIViewController, LessionListTableVCDelegate {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? QuestionVC {
-            dest.delegateVC = self
-            }
-        }
-    
-    
-    
     @IBAction func okButtonPressed(_ sender: UIButton) {
         if service.nextSelectedSymbol() {
-            print("ZARABOTALO")
             okButton.backgroundColor = .systemGreen
             okButton.setTitle("Тренироваться", for: .normal)
             performSegue(withIdentifier: "toQuestionController", sender: self)
@@ -104,7 +93,7 @@ class HearVC: UIViewController, LessionListTableVCDelegate {
     
         transcriptLabel.text = service.selectedSymbol?.charEng
         charInImage.text = service.selectedSymbol?.charJap
-        playSound(symbol: service.selectedSymbol!)
+        service.playSelectedSymbol()
         UIView.animate(withDuration: 0.2,
                        delay: 0,
                        options: .allowUserInteraction,
@@ -139,8 +128,7 @@ class HearVC: UIViewController, LessionListTableVCDelegate {
         service.choiceSelectedSymbol(tagButton: sender.tag)
         transcriptLabel.text = service.selectedSymbol?.charEng
         charInImage.text = service.selectedSymbol?.charJap
-        playSound(symbol: service.selectedSymbol!)
-        
+        service.playSelectedSymbol()
         
         
         UIView.animate(withDuration: 0.2,
@@ -179,8 +167,7 @@ class HearVC: UIViewController, LessionListTableVCDelegate {
     
     
     @IBAction func listenButtonPressed(_ sender: UIButton) {
-        
-        playSound(symbol: service.selectedSymbol!)
+        service.playSelectedSymbol()
         
         UIView.animate(withDuration: 0.2,
             animations: {
@@ -199,26 +186,5 @@ class HearVC: UIViewController, LessionListTableVCDelegate {
             })
     }
     
-    func playSound(symbol: Symbol) {
-        let path = Bundle.main.path(forResource: "basic_sounds/\(symbol.soundJap)", ofType: "mp3")!
-        let url = URL(fileURLWithPath : path)
-
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-
-            guard let player = player else { return }
-
-            player.play()
-
-        } catch let error {
-            print(error.localizedDescription)
-        }
     }
-}
 
-func buttonPressedAnimated(view: UIView) {
-    
-}

@@ -26,12 +26,12 @@ var groupSA = [Symbol(charJap: "さ", charEng: "са (sa)", soundJap: "sa"),
               Symbol(charJap: "せ", charEng: "сэ (se)", soundJap: "se"),
               Symbol(charJap: "て", charEng: "тэ (te)", soundJap: "te")]
 
-let hiraganaGroups = [groupA, groupKA, groupSA]
+let hiraganaGroups = [groupA, groupKA, groupSA, groupA, groupKA, groupSA, groupA, groupKA, groupSA]
 
 
 var lessions: [Lession] = [Lession(id: 0, name: "Введение. Гласные", image: #imageLiteral(resourceName: "Группа Гласные.png"), progress: 0, group: groupA),
-                           Lession(id: 1, name: "Группа Ка", image: #imageLiteral(resourceName: "Группа Ки.png"), progress: 0, group: groupA),
-                           Lession(id: 2, name: "Группа Са", image: #imageLiteral(resourceName: "Группа Ми"), progress: 0, group: groupA),
+                           Lession(id: 1, name: "Группа Ка", image: #imageLiteral(resourceName: "Группа Ки.png"), progress: 0, group: groupKA),
+                           Lession(id: 2, name: "Группа Са", image: #imageLiteral(resourceName: "Группа Ми"), progress: 0, group: groupSA),
                            Lession(id: 3, name: "Группа Та", image: #imageLiteral(resourceName: "Группа Ти"), progress: 0, group: groupA),
                            Lession(id: 4, name: "Группа На", image: #imageLiteral(resourceName: "Группа Ти"), progress: 0, group: groupA),
                            Lession(id: 5, name: "Группа Ха", image: #imageLiteral(resourceName: "Группа Ни"), progress: 0, group: groupA),

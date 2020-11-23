@@ -6,19 +6,38 @@
 //
 
 import UIKit
+import RealmSwift
+
+
+
 
 class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    var delegateVC: LessionListTableVCDelegate?
+
+
+
     var serviceQuiz = QuestionService()
+    
+    var user = User.shared
+    let realm = try! Realm()
+    
     @IBOutlet weak var backgroundView: UIView!
     
     @IBOutlet weak var questionSymbol: UILabel!
     
     @IBOutlet weak var progress: UIProgressView!
+    
+    
+    
+    
     @IBAction func answerButtonPressed(_ sender: UIButton) {
+        
+        
         if serviceQuiz.checkQuestion(sender: sender) {
-            serviceQuiz.newQuiz(group: delegateVC!.dataForHearVC!)
+            serviceQuiz.newQuiz(group: user.currentSymbolGroup)
             questionSymbol.text = serviceQuiz.question!.charJap
+            
+            
+            
             UIView.animate(withDuration: 0.2,
                            delay: 0,
                            options: .allowUserInteraction,
@@ -29,8 +48,26 @@ class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionView
                                 self.backgroundView.backgroundColor = .none
                             }
                            })
+            UIView.transition(with: self.questionSymbol, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+                
+                self.view.translatesAutoresizingMaskIntoConstraints = false
+
+                
+            }, completion: nil)
+        } else {
+            UIView.animate(withDuration: 0.2,
+                           delay: 0,
+                           options: .allowUserInteraction,
+                           animations: {
+                            self.backgroundView.backgroundColor = .red
+                           }, completion: {_ in
+                            UIView.animate(withDuration: 0.2) {
+                                self.backgroundView.backgroundColor = .none
+                            }
+                           })
+            
         }
-        UIView.animate(withDuration: 0.2,
+            UIView.animate(withDuration: 0.2,
                        delay: 0,
                        options: .allowUserInteraction,
                        animations: {
@@ -40,31 +77,42 @@ class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionView
                             sender.transform = CGAffineTransform.identity
                         }
                        })
+       
         
+        
+        
+        let dataFromRealm = realm.objects(ProgressOnLession.self)
+        
+        for lession in dataFromRealm {
+            if lession.lessionID == user.currentLession {
+                try! realm.write {
+                    lession.progress = serviceQuiz.progress!
+                    realm.add(lession, update: .modified)
+                }
+            }
+        }
         progress.progress = serviceQuiz.progress!
+        
+        
 
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (delegateVC?.dataForHearVC?.count)!
+        return user.currentSymbolGroup.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = questionsCollectionView.dequeueReusableCell(withReuseIdentifier: "QuestionCell", for: indexPath) as! QuestionCell
         
-        cell.button.setTitle("\(delegateVC!.dataForHearVC![indexPath.row].soundJap)", for: .normal)
+        cell.button.setTitle("\(user.currentSymbolGroup[indexPath.row].soundJap)", for: .normal)
         cell.layer.cornerRadius = 5
         
         
         return cell
     }
     
-    var isHeightCalculated: Bool = false
-
-    
-
     @IBOutlet weak var questionsCollectionView: UICollectionView!
     
 
@@ -72,23 +120,10 @@ class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionView
         super.viewDidLoad()
         questionsCollectionView.delegate = self
         questionsCollectionView.dataSource = self
-        serviceQuiz.newQuiz(group: delegateVC!.dataForHearVC!)
-        serviceQuiz.progress = 0.0
+        serviceQuiz.newQuiz(group: user.currentSymbolGroup)
+        serviceQuiz.progress = user.access[user.currentLession].progress
         progress.progress = serviceQuiz.progress!
         questionSymbol.text = serviceQuiz.question!.charJap
         backgroundView.layer.cornerRadius = 30
-        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -37,6 +37,49 @@
                                 <rect key="frame" x="0.0" y="584.5" width="375" height="82.5"/>
                                 <color key="backgroundColor" red="0.80648332830000002" green="0.44441413880000002" blue="0.39604562519999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FY2-aq-I7m">
+                                <rect key="frame" x="10" y="-5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FY2-aq-I7m" secondAttribute="height" multiplier="1:1" id="4BT-rd-R0T"/>
+                                </constraints>
+                                <state key="normal" title="settings" image="Image-1">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jSy-d5-ux0">
+                                <rect key="frame" x="134" y="20" width="231" height="0.0"/>
+                                <subviews>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0tI-OK-vHt">
+                                        <rect key="frame" x="0.0" y="50" width="0.0" height="0.0"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Naf-Ec-4O2">
+                                                <rect key="frame" x="1.5" y="0.0" width="45" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="level 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YD9-0t-XM0">
+                                                <rect key="frame" x="0.0" y="0.0" width="46.5" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWs-xi-N39">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="rWs-xi-N39" secondAttribute="height" multiplier="1:1" id="jzj-2q-tcV"/>
+                                        </constraints>
+                                        <size key="titleShadowOffset" width="0.0" height="1"/>
+                                        <state key="normal" title="Create profile" image="avatar">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" systemColor="systemGrayColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="4WT-k9-el1">
                                 <rect key="frame" x="52" y="534.5" width="271" height="112.5"/>
                                 <subviews>
@@ -104,51 +147,8 @@
                                     <constraint firstAttribute="width" secondItem="0aB-G4-Ngh" secondAttribute="height" multiplier="1:1" id="tyW-88-x0y"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FY2-aq-I7m">
-                                <rect key="frame" x="10" y="45" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="FY2-aq-I7m" secondAttribute="height" multiplier="1:1" id="4BT-rd-R0T"/>
-                                </constraints>
-                                <state key="normal" title="settings" image="Image-1">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jSy-d5-ux0">
-                                <rect key="frame" x="134" y="20" width="231" height="100"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0tI-OK-vHt">
-                                        <rect key="frame" x="0.0" y="25.5" width="131" height="49"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Samurai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Naf-Ec-4O2">
-                                                <rect key="frame" x="0.0" y="0.0" width="131" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="level 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YD9-0t-XM0">
-                                                <rect key="frame" x="84.5" y="28.5" width="46.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWs-xi-N39">
-                                        <rect key="frame" x="131" y="0.0" width="100" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="rWs-xi-N39" secondAttribute="height" multiplier="1:1" id="jzj-2q-tcV"/>
-                                        </constraints>
-                                        <size key="titleShadowOffset" width="0.0" height="1"/>
-                                        <state key="normal" title="Create profile" image="avatar">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="titleShadowColor" systemColor="systemGrayColor"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn, samurai!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pt-Kv-vcw">
-                                <rect key="frame" x="39" y="88.5" width="297" height="57"/>
+                                <rect key="frame" x="39" y="38.5" width="297" height="57"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="43"/>
                                 <color key="textColor" red="0.87058823529411766" green="0.3411764705882353" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.94557153510000003" green="0.88572693010000003" blue="0.90043331689999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -320,7 +320,6 @@
         <!--HearVC-->
         <scene sceneID="7TC-Q8-DC8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9eM-0J-eMU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="6oR-1e-2EH" customClass="HearVC" customModule="petJapanese" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFill" id="qzh-7g-jf6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -416,6 +415,7 @@
                         <segue destination="ez4-pd-N5r" kind="show" identifier="toQuestionController" id="Sg0-d7-4pc"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9eM-0J-eMU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1946.4000000000001" y="-1872.4137931034484"/>
         </scene>
