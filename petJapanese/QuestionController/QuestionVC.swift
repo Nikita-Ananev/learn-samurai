@@ -126,4 +126,12 @@ class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionView
         questionSymbol.text = serviceQuiz.question!.charJap
         backgroundView.layer.cornerRadius = 30
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if self.isMovingFromParent {
+            NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
+        }
+    }
 }

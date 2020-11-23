@@ -16,7 +16,7 @@ class LessionListTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableViewData), name: NSNotification.Name("ReloadData"), object: nil)
         
         
         user.access = Array(realm.objects(ProgressOnLession.self))
@@ -68,6 +68,8 @@ class LessionListTableVC: UITableViewController {
         user.currentLession = sender.tag
     }
 
-    
+    @objc func reloadTableViewData() {
+        tableView.reloadData()
+    }
 }
 

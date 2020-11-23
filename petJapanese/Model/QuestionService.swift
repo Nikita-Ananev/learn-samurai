@@ -30,12 +30,12 @@ struct QuestionService {
         if sender.titleLabel!.text == question!.soundJap {
             
             if self.progress! >= 0 {
-            self.progress! += 0.05
+            self.progress! += 0.025
             }
             return true
         } else {
             if self.progress! > 0 {
-            self.progress! -= 0.025
+            self.progress! -= 0.05
             }
             return false
         }
