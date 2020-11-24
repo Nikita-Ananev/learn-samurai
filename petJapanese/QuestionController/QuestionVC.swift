@@ -48,7 +48,7 @@ class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionView
                                 self.backgroundView.backgroundColor = .none
                             }
                            })
-            UIView.transition(with: self.questionSymbol, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+            UIView.transition(with: self.questionSymbol, duration: 0.2, options: .transitionFlipFromBottom, animations: {
                 
                 self.view.translatesAutoresizingMaskIntoConstraints = false
 
