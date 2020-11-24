@@ -34,8 +34,10 @@ struct QuestionService {
             }
             return true
         } else {
-            if self.progress! > 0 {
-            self.progress! -= 0.05
+            if self.progress! >= 0.10 {
+            self.progress! -= 0.10  
+            } else {
+                self.progress! = 0.00
             }
             return false
         }
