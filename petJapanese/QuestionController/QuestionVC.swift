@@ -12,9 +12,9 @@ import RealmSwift
 
 
 class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-
-
-
+    
+    
+    
     var serviceQuiz = QuestionService()
     
     var user = User.shared
@@ -36,8 +36,6 @@ class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionView
             serviceQuiz.newQuiz(group: user.currentSymbolGroup)
             questionSymbol.text = serviceQuiz.question!.charJap
             
-            
-            
             UIView.animate(withDuration: 0.2,
                            delay: 0,
                            options: .allowUserInteraction,
@@ -51,7 +49,7 @@ class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionView
             UIView.transition(with: self.questionSymbol, duration: 0.2, options: .transitionFlipFromBottom, animations: {
                 
                 self.view.translatesAutoresizingMaskIntoConstraints = false
-
+                
                 
             }, completion: nil)
         } else {
@@ -67,7 +65,7 @@ class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionView
                            })
             
         }
-            UIView.animate(withDuration: 0.2,
+        UIView.animate(withDuration: 0.2,
                        delay: 0,
                        options: .allowUserInteraction,
                        animations: {
@@ -77,7 +75,7 @@ class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionView
                             sender.transform = CGAffineTransform.identity
                         }
                        })
-       
+        
         
         
         
@@ -94,7 +92,7 @@ class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionView
         progress.progress = serviceQuiz.progress!
         
         
-
+        
     }
     
     
@@ -115,21 +113,22 @@ class QuestionVC: UIViewController, UICollectionViewDataSource, UICollectionView
     
     @IBOutlet weak var questionsCollectionView: UICollectionView!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         questionsCollectionView.delegate = self
         questionsCollectionView.dataSource = self
         serviceQuiz.newQuiz(group: user.currentSymbolGroup)
         serviceQuiz.progress = user.access[user.currentLession].progress
-        progress.progress = serviceQuiz.progress!
-        questionSymbol.text = serviceQuiz.question!.charJap
+        
+        progress.progress = serviceQuiz.progress ?? 0.0
+        questionSymbol.text = serviceQuiz.question?.charJap ?? "error"
         backgroundView.layer.cornerRadius = 30
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
         if self.isMovingFromParent {
             NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
         }

@@ -15,12 +15,22 @@ class LessionListViewCell: UITableViewCell {
     @IBOutlet weak var skillLevelLabel: UILabel!
     
     @IBOutlet weak var practiceButton: UIButton!
-
     
-    @IBAction func practicButtonPressed(_ sender: UIButton) {
+    
+    func configure(lession: Lession) {
+        
+        progressViewOfSection.progress = lession.progress
+        skillLevelLabel.text = "Завершен на \(Int(lession.progress * 100))%"
+        if lession.progress == 0.0 {
+            skillLevelLabel.text = "Нет прогресса"
+        }
+        
+        sectionNameLabel.text = lession.name
+        sectionImage.image = lession.image
+        
+        
+        practiceButton.layer.cornerRadius = practiceButton.frame.height / 5
         
     }
-    
-    
     
 }

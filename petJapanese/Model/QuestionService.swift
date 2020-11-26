@@ -21,8 +21,8 @@ struct QuestionService {
         } else {
             self.question = group.randomElement()!
             let a = Int(group.firstIndex(of: self.question!)!)
-        self.group = group
-        self.group?.remove(at: a)
+            self.group = group
+            self.group?.remove(at: a)
         }
     }
     
@@ -30,15 +30,18 @@ struct QuestionService {
         if sender.titleLabel!.text == question!.soundJap {
             
             if self.progress! >= 0 {
-            self.progress! += 0.025
+                self.progress! += 0.025
             }
+            
             return true
         } else {
+            
             if self.progress! >= 0.10 {
-            self.progress! -= 0.10  
+                self.progress! -= 0.10  
             } else {
                 self.progress! = 0.00
             }
+            
             return false
         }
     }

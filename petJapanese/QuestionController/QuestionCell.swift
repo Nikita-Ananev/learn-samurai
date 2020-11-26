@@ -9,8 +9,4 @@ import UIKit
 
 class QuestionCell: UICollectionViewCell {
     @IBOutlet weak var button: UIButton!
-    
-
-    
-
 }

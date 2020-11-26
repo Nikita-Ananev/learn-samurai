@@ -18,20 +18,21 @@ class MainVC: UIViewController {
     
     @IBOutlet weak var backViewForButton2: UIView!
     @IBOutlet weak var backViewForButton1: UIView!
-
-
+    
+    
     @IBOutlet weak var appLabel: UILabel!
     
     @IBOutlet weak var trainButton: UIButton!
     @IBOutlet weak var fightButton: UIButton!
     
-   
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         if realm.objects(ProgressOnLession.self).isEmpty {
+            
             for lession in lessions {
                 let newProgress = ProgressOnLession()
                 newProgress.lessionID = lession.id
@@ -47,30 +48,30 @@ class MainVC: UIViewController {
             user.access = Array(data)
             print(user.access)
         }
-      
+        
         
         trainButton.layer.cornerRadius = trainButton.frame.height / 2
         fightButton.layer.cornerRadius = fightButton.frame.height / 2
         backViewForButton1.layer.cornerRadius = backViewForButton1.frame.height / 2
         backViewForButton2.layer.cornerRadius = backViewForButton2.frame.height / 2
         
-
+        
     }
-
+    
     
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-
+        
     }
-
+    
     @IBAction func testButtonPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.8,
                        delay: 0,
@@ -85,24 +86,25 @@ class MainVC: UIViewController {
                             self.backViewForButton1.isHidden = true
                         })
                         
-
-
+                        
+                        
                        }, completion: {_ in
                         UIView.animate(withDuration: 0.4) {
                             self.performSegue(withIdentifier: "toLessionList", sender: self)
+                            
                             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
                                 self.trainButton.transform = CGAffineTransform.identity
                                 self.trainButton.setTitle("Train", for: .normal)
                                 self.fightButton.isHidden = false
                                 self.backViewForButton1.isHidden = false
                                 self.appLabel.textColor = #colorLiteral(red: 0.7459256053, green: 0.2329387963, blue: 0.21997118, alpha: 1)
-
+                                
                             })
-                           
-
-
-
-
+                            
+                            
+                            
+                            
+                            
                         }
                        })
     }
@@ -119,7 +121,7 @@ class MainVC: UIViewController {
                         }
                        })
     }
-
+    
     
 }
 

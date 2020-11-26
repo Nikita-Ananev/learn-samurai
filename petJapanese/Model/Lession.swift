@@ -8,7 +8,7 @@
 import UIKit
 
 struct Lession: Hashable {
-
+    
     
     let id: Int
     let name: String

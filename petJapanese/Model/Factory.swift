@@ -15,16 +15,16 @@ var groupA = [Symbol(charJap: "あ", charEng: "а (a)", soundJap: "a"),
               Symbol(charJap: "お", charEng: "о (o)", soundJap: "o")]
 
 var groupKA = [Symbol(charJap: "か", charEng: "ка (ka)", soundJap: "ka"),
-              Symbol(charJap: "き", charEng: "ки (ki)", soundJap: "ki"),
-              Symbol(charJap: "く", charEng: "ку (ku)", soundJap: "ku"),
-              Symbol(charJap: "け", charEng: "кэ (ke)", soundJap: "ke"),
-              Symbol(charJap: "こ", charEng: "ко (ko)", soundJap: "ko")]
+               Symbol(charJap: "き", charEng: "ки (ki)", soundJap: "ki"),
+               Symbol(charJap: "く", charEng: "ку (ku)", soundJap: "ku"),
+               Symbol(charJap: "け", charEng: "кэ (ke)", soundJap: "ke"),
+               Symbol(charJap: "こ", charEng: "ко (ko)", soundJap: "ko")]
 
 var groupSA = [Symbol(charJap: "さ", charEng: "са (sa)", soundJap: "sa"),
-              Symbol(charJap: "し", charEng: "си (shi)", soundJap: "shi"),
-              Symbol(charJap: "す", charEng: "cу (su)", soundJap: "su"),
-              Symbol(charJap: "せ", charEng: "сэ (se)", soundJap: "se"),
-              Symbol(charJap: "て", charEng: "тэ (te)", soundJap: "te")]
+               Symbol(charJap: "し", charEng: "си (shi)", soundJap: "shi"),
+               Symbol(charJap: "す", charEng: "cу (su)", soundJap: "su"),
+               Symbol(charJap: "せ", charEng: "сэ (se)", soundJap: "se"),
+               Symbol(charJap: "て", charEng: "тэ (te)", soundJap: "te")]
 
 let hiraganaGroups = [groupA, groupKA, groupSA, groupA, groupKA, groupSA, groupA, groupKA, groupSA]
 

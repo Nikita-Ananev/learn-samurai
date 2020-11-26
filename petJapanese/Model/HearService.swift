@@ -24,7 +24,7 @@ struct HearService {
         } else {
             return true
         }
-
+        
     }
     mutating func choiceSelectedSymbol(tagButton: Int) {
         selectedSymbolIndex = tagButton
@@ -35,17 +35,17 @@ struct HearService {
     mutating func playSelectedSymbol() {
         guard let path = Bundle.main.path(forResource: "basic_sounds/\(selectedSymbol!.soundJap )", ofType: "mp3") else { return }
         let url = URL(fileURLWithPath : path)
-
+        
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
-
+            
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-
+            
             guard let player = player else { return }
-
+            
             player.play()
-
+            
         } catch let error {
             print(error.localizedDescription)
         }

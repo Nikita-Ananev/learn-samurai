@@ -248,7 +248,6 @@
                                                             </state>
                                                             <connections>
                                                                 <action selector="practicButtonPressed:" destination="Fw6-D0-q2j" eventType="touchUpInside" id="1VH-hI-Wa0"/>
-                                                                <action selector="practicButtonPressed:" destination="uSU-Ao-HfC" eventType="touchUpInside" id="eXE-Cv-xvz"/>
                                                                 <segue destination="6oR-1e-2EH" kind="show" identifier="practiceSegue" id="prv-qO-P0p"/>
                                                             </connections>
                                                         </button>
@@ -289,8 +288,8 @@
                                         <constraint firstAttribute="bottom" secondItem="ymF-3z-uYa" secondAttribute="bottom" constant="10" id="PjM-Tq-Bp5"/>
                                         <constraint firstAttribute="trailing" secondItem="G1n-KS-2gz" secondAttribute="trailing" constant="50" id="VIa-HC-FVj"/>
                                         <constraint firstItem="G1n-KS-2gz" firstAttribute="top" secondItem="aXn-KI-UX9" secondAttribute="top" constant="10" id="cDM-Jw-6kd"/>
-                                        <constraint firstItem="G1n-KS-2gz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ymF-3z-uYa" secondAttribute="trailing" id="psC-Sv-vCD"/>
                                         <constraint firstItem="ymF-3z-uYa" firstAttribute="top" secondItem="aXn-KI-UX9" secondAttribute="top" constant="10" id="qlz-YF-JCM"/>
+                                        <constraint firstItem="o5r-Za-ptb" firstAttribute="leading" secondItem="ymF-3z-uYa" secondAttribute="trailing" constant="25" id="zgB-oO-iFb"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

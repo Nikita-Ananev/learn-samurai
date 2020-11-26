@@ -87,11 +87,11 @@
 		4D3568632534B3B100AAE973 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4D3568672534B63300AAE973 /* Factory.swift */,
 				4D35685B2534B3A200AAE973 /* Symbol.swift */,
-				4D35688E253E3DDB00AAE973 /* User.swift */,
-				4D3C9808256C32D600B57C0A /* ProgressOnLession.swift */,
 				4D3568832534CC6500AAE973 /* Lession.swift */,
+				4D3C9808256C32D600B57C0A /* ProgressOnLession.swift */,
+				4D35688E253E3DDB00AAE973 /* User.swift */,
+				4D3568672534B63300AAE973 /* Factory.swift */,
 				4DB2962D2548B6030025926F /* HearService.swift */,
 				4D591C922551C2570016C6E2 /* QuestionService.swift */,
 			);
@@ -466,7 +466,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Ananev.petJapanese;
+				PRODUCT_BUNDLE_IDENTIFIER = AnanevNikita.petJapanese;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -486,7 +486,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Ananev.petJapanese;
+				PRODUCT_BUNDLE_IDENTIFIER = AnanevNikita.petJapanese;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -9,13 +9,5 @@ target 'petJapanese' do
 
   # Pods for petJapanese
 
-  target 'petJapaneseTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'petJapaneseUITests' do
-    # Pods for testing
-  end
-
 end
+  

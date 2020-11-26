@@ -63,7 +63,7 @@ class HearVC: UIViewController {
             button.layer.cornerRadius = 5
             button.layer.borderWidth = 0.5
             button.layer.borderColor = UIColor.black.cgColor
-
+            
             stackView.addArrangedSubview(button)
         }
         buttonIndex = 0
@@ -88,9 +88,9 @@ class HearVC: UIViewController {
             okButton.backgroundColor = .systemGreen
             okButton.setTitle("Тренироваться", for: .normal)
             performSegue(withIdentifier: "toQuestionController", sender: self)
-
+            
         }
-    
+        
         transcriptLabel.text = service.selectedSymbol?.charEng
         charInImage.text = service.selectedSymbol?.charJap
         service.playSelectedSymbol()
@@ -102,23 +102,23 @@ class HearVC: UIViewController {
                        }, completion: {_ in
                         UIView.animate(withDuration: 0.2) {
                             self.charInImage.transform = CGAffineTransform.identity
-
-
+                            
+                            
                         }
                        })
         UIView.animate(withDuration: 0.2,
-            animations: {
-                self.okButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-
-                
-            },
-            completion: { _ in
-                UIView.animate(withDuration: 0.3) {
-                    self.okButton.transform = CGAffineTransform.identity
-
-
-                }
-            })
+                       animations: {
+                        self.okButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                        
+                        
+                       },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.3) {
+                            self.okButton.transform = CGAffineTransform.identity
+                            
+                            
+                        }
+                       })
         
     }
     
@@ -139,8 +139,8 @@ class HearVC: UIViewController {
                        }, completion: {_ in
                         UIView.animate(withDuration: 0.2) {
                             self.charInImage.transform = CGAffineTransform.identity
-
-
+                            
+                            
                         }
                        })
         UIView.animate(withDuration: 0.2,
@@ -170,21 +170,21 @@ class HearVC: UIViewController {
         service.playSelectedSymbol()
         
         UIView.animate(withDuration: 0.2,
-            animations: {
-                self.listenButton.setImage(#imageLiteral(resourceName: "ЧувачокГоворит2"), for: .normal)
-                self.listenButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                self.charInImage.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-                
-            },
-            completion: { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.charInImage.transform = CGAffineTransform.identity
-                    self.listenButton.transform = CGAffineTransform.identity
-                    self.listenButton.setImage(#imageLiteral(resourceName: "Чувачок"), for: .normal)
-
-                }
-            })
+                       animations: {
+                        self.listenButton.setImage(#imageLiteral(resourceName: "ЧувачокГоворит2"), for: .normal)
+                        self.listenButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                        self.charInImage.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                        
+                       },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.2) {
+                            self.charInImage.transform = CGAffineTransform.identity
+                            self.listenButton.transform = CGAffineTransform.identity
+                            self.listenButton.setImage(#imageLiteral(resourceName: "Чувачок"), for: .normal)
+                            
+                        }
+                       })
     }
     
-    }
+}
 

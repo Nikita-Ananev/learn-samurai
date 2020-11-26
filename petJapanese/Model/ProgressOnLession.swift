@@ -14,6 +14,6 @@ class ProgressOnLession: Object {
     @objc dynamic var progress: Float = 0.0
     
     override static func primaryKey() -> String? {
-            return "lessionID"
-        }
+        return "lessionID"
+    }
 }
